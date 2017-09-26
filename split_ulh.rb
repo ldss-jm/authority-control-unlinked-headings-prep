@@ -38,3 +38,7 @@ Dir.glob(workdir + '*.ULH') do |ulh_file|
 end
 
 ofiles.values.each { |ofile| ofile.close}
+
+puts "finished successfully. Press [Enter] to exit"
+gets
+exit
