@@ -5,6 +5,9 @@
 # Does not otherwise alter records.
 #
 # Outputs to: [type].ulh.split
+#
+# Separate from that, writes entries with |a count != 1 to separate file
+# for review
 
 workdir = '//ad.unc.edu/lib/common/Authority Control/UnlinkedHeadingsPrep/'
 
@@ -14,13 +17,14 @@ cname_ofile = File.open(workdir + 'cname.ulh.split', 'w')
 psubj_ofile = File.open(workdir + 'psubj.ulh.split', 'w')
 csubj_ofile = File.open(workdir + 'csubj.ulh.split', 'w')
 
+sf_a_ofile = File.open(workdir + 'subfield_a_count_not_1.txt', 'w')
+
 ofiles = {:series => series_ofile,
           :pname => pname_ofile,
           :cname => cname_ofile,
           :psubj => psubj_ofile,
           :csubj => csubj_ofile
 }
-
 
 puts "splitting files..."
 Dir.glob(workdir + '*.ULH') do |ulh_file|
@@ -34,10 +38,15 @@ Dir.glob(workdir + '*.ULH') do |ulh_file|
                 when /^610/ then :csubj
                 end
     ofiles[index_type] << line if index_type
+    if field_code =~ /X[01]0|6[01]0/
+      if line.scrub.split("\u001Fa").length != 2
+        sf_a_ofile.write(line)
+      end
+    end
   end
 end
-
 ofiles.values.each { |ofile| ofile.close}
+sf_a_ofile.close
 
 puts "finished successfully. Press [Enter] to exit"
 gets
