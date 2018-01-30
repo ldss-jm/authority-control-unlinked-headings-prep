@@ -2,6 +2,7 @@
 ## Setup/Installation
 * Script at github, install to your local drive (not here)
   * https://github.com/ldss-jm/authority-control-unlinked-headings-prep/
+* gem install i18n
 * postgres_connect - install this too
   * https://github.com/ldss-jm/postgres_connect
   * needs to live inside a folder called "postgres_connect" in the parent directory of the unlinked headings script. so, eg.:
