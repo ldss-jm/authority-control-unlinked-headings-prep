@@ -1,0 +1,17 @@
+﻿AUTHORITIES PROCESSING REPORT: Unrecognized or Invalid terms
+
+This report shows main entries that were unrecognized during authorities processing.
+Each group of text first shows the control number associated with the term.
+The + denotes the unrecognized bibliographic term.
+
+
+Unrecognized/Invalid X00 terms begin here.
+.b21014905
++100 0  $aA. C. y V.
+
+.b49436806
++600 10 $aAdams, Flick$c(Fictitious character)$vFiction.
+
+.b14181587
++700 1  $aZvegintsova, Ekaterina,$etranslator.
+
