@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'unlinked_headings'
+UnlinkedHeadings::CLI.start(ARGV)
