@@ -30,7 +30,7 @@ In a terminal (e.g. powershell, terminal, bash):
 git clone https://github.com/ldss-jm/authority-control-unlinked-headings-prep
 
 # install bundler
-gem install bundle -v '~> 1.16'
+gem install bundle
 
 # install some other dependencies
 cd authority-control-unlinked-headings-prep

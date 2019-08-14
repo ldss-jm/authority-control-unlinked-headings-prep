@@ -21,7 +21,7 @@ module UnlinkedHeadings
     ULH entries containing no $a or multiple $a will be listed with their bnum.
     LONGDESC
     def subfield_a_count_report(marcive_report, output)
-      VendorReport.new(marcive_report).subfield_a_count(output)
+      VendorReport.new(marcive_report).subfield_a_count_report(output)
     end
   end
 end
