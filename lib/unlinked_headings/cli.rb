@@ -23,5 +23,21 @@ module UnlinkedHeadings
     def subfield_a_count_report(marcive_report, output)
       VendorReport.new(marcive_report).subfield_a_count_report(output)
     end
+
+    desc 'extract_880s <input>', 'write changed 880s by character script'
+    long_desc <<-LONGDESC
+    <input> is a filename (wildcards/globbing allowed) for marcive changed
+    headings reports.
+
+    Entries pertaining to 880s are written to separate arabic/cjk/cyrillic/other
+    files, e.g. changed_880s_arabic.txt
+
+    Example usage:
+    \x5  exe/acu extract_880s NCHIOBSO01.TXT
+    \x5  exe/acu extract_880s NCHIOBSO*
+    LONGDESC
+    def extract_880s(*infiles)
+      Changed880.process(infiles)
+    end
   end
 end
