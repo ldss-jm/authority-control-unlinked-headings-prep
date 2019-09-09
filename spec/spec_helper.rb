@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "unlinked_headings"
+require "authority_control_utilities"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
