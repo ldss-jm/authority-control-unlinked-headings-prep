@@ -38,7 +38,7 @@ In a terminal (e.g. powershell, terminal, git bash):
 git clone https://github.com/ldss-jm/authority-control-utilities
 
 # install bundler
-gem install bundle
+gem install bundler
 
 # install some other dependencies
 cd authority-control-utilities
