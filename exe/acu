@@ -2,5 +2,5 @@
 lib = File.expand_path("../lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'unlinked_headings'
-UnlinkedHeadings::CLI.start(ARGV)
+require 'authority_control_utilities'
+AuthorityControl::CLI.start(ARGV)

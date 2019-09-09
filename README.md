@@ -26,7 +26,10 @@ b1418158a   unsuppressed   Zilbersdorf, E. A. (Evgenii)
 
 ## Setup / Installation
 
-Requires ruby (see [here](https://www.ruby-lang.org) for ruby download/instructions)
+Requirements:
+
+- ruby (see [here](https://www.ruby-lang.org) for download/instructions)
+- [git bash](https://gitforwindows.org/) (if using windows)
 
 In a terminal (e.g. powershell, terminal, git bash):
 
@@ -46,7 +49,7 @@ Sierra credentials (and permissions) are needed if using tasks that connect to S
 
 ## Usage
 
-NOTE: If using powershell, you may need to switch to code page 65001 (probably from cp 437). To do this, enter `chcp 65001`. To switch back, you can just close the powershell window; or enter `chcp 437`. You'll switch to 65001 each new powershell
+NOTE: If using powershell, you may need to switch to code page 65001 after starting the powershell session. To do this, enter `chcp 65001`. To switch back, you can just close the powershell window; or enter `chcp 437`. You'll switch to 65001 each new powershell
 session.
 
 After setup, in the `authority-control-utilities` folder, you can:
@@ -56,7 +59,7 @@ bundle exec ruby exe/acu help
 
 # Read a marcive ULH report (NCHIPERS.txt) and write data
 # suitable for openrefine (openrefine_personal.txt)
-bundle exec ruby exe/acu process NCHIPERS.txt openrefine_personal.txt
+bundle exec ruby exe/acu ulh_process NCHIPERS.txt openrefine_personal.txt
 
 # Read a marcive ULH report (NCHIPERS.txt) and write a report
 # of fields with zero $a's or multiple $a's

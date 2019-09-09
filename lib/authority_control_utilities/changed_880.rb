@@ -3,7 +3,7 @@
 class Changed880
   attr_accessor :lines
   def initialize(line)
-    @lines = [line]
+    @lines = [line.rstrip]
     @bnum = line.match(/^\.(b[0-9x]*)/).captures.first
   end
 
@@ -14,7 +14,7 @@ class Changed880
   def write
     return unless m880?
 
-    ofile.write("#{@lines.join}\r\n")
+    ofile.write("#{@lines.join("\n")}\n\n")
   end
 
   def ofile
@@ -24,7 +24,7 @@ class Changed880
   def script
     return unless m880?
 
-    if lines.find { |line| line.match(/\p{Han}|\p{Hangul}/) }
+    if lines.find { |line| line.match(/\p{Han}|\p{Hangul}|\p{Katakana}/) }
       :cjk
     elsif lines.find { |line| line.match(/\p{Cyrillic}/) }
       :cyrillic
@@ -63,7 +63,7 @@ class Changed880
         entry&.write
         entry = nil
       elsif entry
-        entry.lines << line
+        entry.lines << line.rstrip
       else
         next
       end

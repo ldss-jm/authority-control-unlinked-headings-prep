@@ -1,5 +1,5 @@
-RSpec.describe UnlinkedHeadings do
+RSpec.describe AuthorityControl do
   it "has a version number" do
-    expect(UnlinkedHeadings::VERSION).not_to be nil
+    expect(AuthorityControl::VERSION).not_to be nil
   end
 end

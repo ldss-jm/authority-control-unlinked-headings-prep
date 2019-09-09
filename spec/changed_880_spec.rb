@@ -2,14 +2,14 @@
 
 require 'spec_helper'
 
-module UnlinkedHeadings
+module AuthorityControl
   RSpec.describe Changed880 do
-    let (:c880) { Changed880.new(".b20857445, 38447\r\n") }
+    let (:c880) { Changed880.new(".b20857445, 38447\n") }
 
     context 'when containing an 880' do
       let (:c880) do
         c = Changed880.new(".b20857445, 38447\r\n")
-        c.lines << "-880\r\n"
+        c.lines << "-880\r\n".rstrip
         c
       end
 
@@ -24,14 +24,7 @@ module UnlinkedHeadings
           i = StringIO.new
           Changed880.outfiles[:other] = i
           c880.write
-          expect(i.string).to eq(".b20857445, 38447\r\n-880\r\n\r\n")
-        end
-
-        it "uses crlf line endings" do
-          i = StringIO.new
-          Changed880.outfiles[:other] = i
-          c880.write
-          expect(i.string).to end_with("\r\n")
+          expect(i.string).to eq(".b20857445, 38447\n-880\n\n")
         end
       end
     end
@@ -56,6 +49,10 @@ module UnlinkedHeadings
     describe 'script' do
       it ' = :cjk when containing Han, Hangul characters' do
         c880.lines << "-880  0 $6830-06/$1$a華崗叢書"
+      end
+
+      it ' = :cjk when containing Katakana characters' do
+        c880.lines << "-880  0 $6830-06/$1$aグ"
       end
 
       it ' else, = :cyrillic when containing Cyrillic characters' do

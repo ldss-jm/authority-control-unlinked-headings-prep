@@ -1,6 +1,6 @@
-module UnlinkedHeadings
+module AuthorityControl
   class CLI < Thor
-    desc 'process <input> <output>', 'format marcive report for openrefine'
+    desc 'ulh_process <input> <output>', 'format marcive report for openrefine'
     long_desc <<-LONGDESC
     <input>is the filename of an unlinked headings report from Marcive
     \x5<output> is the output filename.
@@ -9,8 +9,8 @@ module UnlinkedHeadings
     sierra suppression/deletion status, and normalized/cleaned heading
     contents.
     LONGDESC
-    def process(marcive_report, output)
-      VendorReport.new(marcive_report).report_for_openrefine(output)
+    def ulh_process(marcive_report, output)
+      UnlinkedHeadings::VendorReport.new(marcive_report).report_for_openrefine(output)
     end
 
     desc 'subfield_a <input> <output>', 'list entries with zero or multiple $a'
@@ -21,7 +21,7 @@ module UnlinkedHeadings
     ULH entries containing no $a or multiple $a will be listed with their bnum.
     LONGDESC
     def subfield_a_count_report(marcive_report, output)
-      VendorReport.new(marcive_report).subfield_a_count_report(output)
+      UnlinkedHeadings::VendorReport.new(marcive_report).subfield_a_count_report(output)
     end
 
     desc 'extract_880s <input>', 'write changed 880s by character script'
