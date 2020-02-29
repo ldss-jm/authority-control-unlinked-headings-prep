@@ -9,7 +9,7 @@ gem 'thor', '~> 0.20.3'
 
 group :development do
   gem 'bundler', '~> 2.0.2'
-  gem 'rake', '~> 10.0'
+  gem 'rake', '~> 12.3'
 end
 
 group :test do
