@@ -8,7 +8,7 @@ gem 'i18n', '~> 1.6.0'
 gem 'thor', '~> 0.20.3'
 
 group :development do
-  gem 'bundler', '~> 2.0.2'
+  gem 'bundler', '~> 2.1'
   gem 'rake', '~> 12.3'
 end
 
